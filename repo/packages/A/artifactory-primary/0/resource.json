@@ -1,0 +1,15 @@
+{
+  "images": {
+    "icon-small": "https://raw.githubusercontent.com/jainishshah17/Images/master/artifactory_small.png",
+    "icon-medium": "https://raw.githubusercontent.com/jainishshah17/Images/master/artifactory_medium.png",
+    "icon-large": "https://raw.githubusercontent.com/jainishshah17/Images/master/artifactory_large.png"
+  },
+  "assets": {
+    "container": {
+      "docker": {
+        "cc0d778670de": "jfrog-docker-reg2.bintray.io/jfrog/artifactory-pro:4.7.1",
+        "0993961a4d57": "jainishshah17/artifactoryha:4.7.1"
+      }
+    }
+  }
+}

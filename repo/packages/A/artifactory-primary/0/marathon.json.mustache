@@ -1,0 +1,82 @@
+{
+  "id": "{{artifactory-primary.framework-name}}",
+  "cpus": {{artifactory-primary.cpus}},
+  "mem": {{artifactory-primary.mem}},
+  {{^artifactory-primary.high-availability.enabled}}
+  "instances": 1,
+  {{/artifactory-primary.high-availability.enabled}}
+  {{#artifactory-primary.high-availability.enabled}}
+  "instances": {{artifactory-primary.high-availability.nodes}},
+  {{/artifactory-primary.high-availability.enabled}}
+   "container": {
+       "type": "DOCKER",
+       "docker": {
+           {{^artifactory-primary.high-availability.enabled}}
+           "image": "{{resource.assets.container.docker.cc0d778670de}}",
+           {{/artifactory-primary.high-availability.enabled}}
+           {{#artifactory-primary.high-availability.enabled}}
+           "image": "{{resource.assets.container.docker.0993961a4d57}}",
+           {{/artifactory-primary.high-availability.enabled}}
+           "network": "BRIDGE",
+            "portMappings": [
+                { "hostPort": 0, "containerPort": 8081, "servicePort": 10001 }
+            ],
+            "forcePullImage":true
+       },
+       "volumes": [
+          {{^artifactory-primary.high-availability.enabled}}
+          {
+          "containerPath": "/var/opt/jfrog/artifactory/data",
+          "hostPath": "{{artifactory-primary.artifactory-home}}/{{artifactory-primary.framework-name}}/data",
+          "mode": "RW"
+          },
+          {
+             "containerPath": "/var/opt/jfrog/artifactory/logs",
+             "hostPath": "{{artifactory-primary.artifactory-home}}/{{artifactory-primary.framework-name}}/logs",
+             "mode": "RW"
+          },
+          {
+             "containerPath": "/var/opt/jfrog/artifactory/backup",
+             "hostPath": "{{artifactory-primary.artifactory-home}}/{{artifactory-primary.framework-name}}/backup",
+             "mode": "RW"
+          }
+          {{/artifactory-primary.high-availability.enabled}}
+          {{#artifactory-primary.high-availability.enabled}}
+          {
+             "containerPath": "/var/opt/jfrog/cluster",
+             "hostPath": "{{artifactory-primary.high-availability.cluster-home}}/cluster-home",
+             "mode": "RW"
+          },
+          {
+          "containerPath": "/var/opt/jfrog/artifactory/data",
+          "hostPath": "{{artifactory-primary.high-availability.cluster-home}}/{{artifactory-primary.framework-name}}/data",
+          "mode": "RW"
+          },
+          {
+          "containerPath": "/var/opt/jfrog/artifactory/logs",
+          "hostPath": "{{artifactory-primary.high-availability.cluster-home}}/{{artifactory-primary.framework-name}}/logs",
+          "mode": "RW"
+          },
+          {
+          "containerPath": "/var/opt/jfrog/artifactory/backup",
+          "hostPath": "{{artifactory-primary.high-availability.cluster-home}}/{{artifactory-primary.framework-name}}/backup",
+          "mode": "RW"
+          }
+          {{/artifactory-primary.high-availability.enabled}}
+       ]
+   },
+  "labels": {
+      {{#artifactory-primary.virtual-host}}
+      "HAPROXY_0_VHOST":"{{artifactory-primary.virtual-host}}",
+      {{/artifactory-primary.virtual-host}}
+      "HAPROXY_GROUP":"external"
+   },
+   "env": {
+    "DATABASE_CONNECTION_STRING": "{{artifactory-primary.high-availability.database.connection-string}}",
+    "DATABASE_USER":  "{{artifactory-primary.high-availability.database.user}}",
+    "DATABASE_PASSWORD":  "{{artifactory-primary.high-availability.database.password}}",
+    "ART_LICENSES": "{{artifactory-primary.artifactory-licenses}}"
+   }{{#artifactory-primary.high-availability.unique-nodes}},
+   "constraints": [["hostname", "UNIQUE"]]
+   {{/artifactory-primary.high-availability.unique-nodes}}
+}
