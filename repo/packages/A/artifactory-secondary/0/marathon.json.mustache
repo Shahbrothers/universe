@@ -76,7 +76,19 @@
     "DATABASE_USER":  "{{artifactory-secondary.high-availability.database.user}}",
     "DATABASE_PASSWORD":  "{{artifactory-secondary.high-availability.database.password}}",
     "ART_LICENSES": "{{artifactory-secondary.artifactory-licenses}}"
-   }{{#artifactory-secondary.high-availability.unique-nodes}},
+   }
+,"healthChecks": [
+{
+"protocol": "HTTP",
+"path": "/artifactory/api/system/ping",
+"gracePeriodSeconds": 3,
+"intervalSeconds": 10,
+"portIndex": 0,
+"timeoutSeconds": 10,
+"maxConsecutiveFailures": 0
+}
+]
+{{#artifactory-secondary.high-availability.unique-nodes}},
    "constraints": [["hostname", "UNIQUE"]]
    {{/artifactory-secondary.high-availability.unique-nodes}}
 }
