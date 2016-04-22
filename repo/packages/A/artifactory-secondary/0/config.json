@@ -75,8 +75,8 @@
           "type": "string",
           "default": "/tmp"
         },
-        "artifactory-licenses": {
-          "description": "Licenses to popuplate artifactory nodes",
+        "artifactory-primary-url": {
+          "description": "URL of Artifacctory primary node to get licenses for artifactory nodes",
           "type": "string",
           "default" : "NONE"
         },
