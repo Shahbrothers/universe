@@ -1,8 +1,8 @@
 {
   "images": {
-    "icon-small": "https://raw.githubusercontent.com/jainishshah17/Images/master/artifactory_small.png",
-    "icon-medium": "https://raw.githubusercontent.com/jainishshah17/Images/master/artifactory_medium.png",
-    "icon-large": "https://raw.githubusercontent.com/jainishshah17/Images/master/artifactory_large.png"
+    "icon-small": "https://raw.githubusercontent.com/jainishshah17/Images/master/artifactory_sml.png",
+    "icon-medium": "https://raw.githubusercontent.com/jainishshah17/Images/master/artifactory_med.png",
+    "icon-large": "https://raw.githubusercontent.com/jainishshah17/Images/master/artifactory_lrg.png"
   },
   "assets": {
     "container": {
