@@ -49,24 +49,6 @@
             "cluster-home": {
               "description": "The location of a volume on the host to be used for persisting cluster home directory used when running Artifactory in HA mode. The final location will be derived from this value plus the name set in `framework-name` (e.g. `/mnt/host_volume/artifactory`). Note that this path must be the same on all DCOS agents.",
               "type": "string"
-            },
-            "database": {
-              "description": "High availability database properties.",
-              "type": "object",
-              "properties": {
-                "connection-string": {
-                  "description": "Database connection string.",
-                  "type": "string"
-                },
-                "user": {
-                  "description": "Database username.",
-                  "type": "string"
-                },
-                "password": {
-                  "description": "Database password.",
-                  "type": "string"
-                }
-              }
             }
           }
         },
