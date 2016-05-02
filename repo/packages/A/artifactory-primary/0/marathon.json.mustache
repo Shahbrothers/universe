@@ -69,7 +69,8 @@
       {{#artifactory-primary.virtual-host}}
       "HAPROXY_0_VHOST":"{{artifactory-primary.virtual-host}}",
       {{/artifactory-primary.virtual-host}}
-      "HAPROXY_GROUP":"external"
+      "HAPROXY_GROUP":"external",
+      "MARATHON_SINGLE_INSTANCE_APP":"true"
    },
    "env": {
     "DATABASE_CONNECTION_STRING": "{{artifactory-primary.high-availability.database.connection-string}}",
