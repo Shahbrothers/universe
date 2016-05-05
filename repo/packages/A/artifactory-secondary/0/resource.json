@@ -7,8 +7,8 @@
   "assets": {
     "container": {
       "docker": {
-        "cc0d778670de": "jfrog-docker-reg2.bintray.io/jfrog/artifactory-pro:4.7.1",
-        "e88aa59303f5": "jainishshah17/artifactoryha-secondary:latest"
+        "cc0d778670de": "jfrog-docker-reg2.bintray.io/jfrog/artifactory-pro:4.7.5",
+        "3456687f45d5": "alexistjfrog-docker-registry.bintray.io/artifactoryhasecondary:4.7.5"
       }
     }
   }
