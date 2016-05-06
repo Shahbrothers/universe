@@ -19,8 +19,8 @@
            {{/artifactory-primary.high-availability.enabled}}
            "network": "BRIDGE",
             "portMappings": [
-                { "hostPort": 8081, "containerPort": 0, "servicePort": 10001 },
-                { "hostPort": 10042, "containerPort": 0, "servicePort": 0 }
+                { "hostPort": 0, "containerPort": 8081, "servicePort": 10001 },
+                { "hostPort": 0, "containerPort": 10042, "servicePort": 0 }
             ],
             "forcePullImage":true
        },
