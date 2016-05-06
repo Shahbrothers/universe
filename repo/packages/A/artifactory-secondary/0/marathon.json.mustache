@@ -15,11 +15,11 @@
            "image": "{{resource.assets.container.docker.cc0d778670de}}",
            {{/artifactory-secondary.high-availability.enabled}}
            {{#artifactory-secondary.high-availability.enabled}}
-           "image": "{{resource.assets.container.docker.3456687f45d5}}",
+           "image": "{{resource.assets.container.docker.10d10aa0bc3d}}",
            {{/artifactory-secondary.high-availability.enabled}}
            "network": "BRIDGE",
             "portMappings": [
-                { "hostPort": 8081, "containerPort": 8081, "servicePort": 10002 }
+                { "hostPort": 8081, "containerPort": 0, "servicePort": 10002 }
             ],
             "forcePullImage":true
        },
