@@ -75,7 +75,9 @@
 "healthChecks": [
 {
 "protocol": "COMMAND",
-"command": "curl http://$HOST:8081/artifactory/api/system/ping",
+"command": {
+"value": "curl http://$HOST:8081/artifactory/api/system/ping"
+},
 "gracePeriodSeconds": 3,
 "intervalSeconds": 10,
 "timeoutSeconds": 10,
