@@ -39,7 +39,7 @@
             "nodes": {
               "description": "The number of nodes to run in high availability mode.",
               "type": "number",
-              "default": 3
+              "default": 1
             },
             "unique-nodes": {
               "description": "Run nodes on unique hosts.",
@@ -84,10 +84,6 @@
           "description": "Licenses to popuplate artifactory nodes",
           "type": "string",
           "default" : "NONE"
-        },
-        "virtual-host": {
-          "description": "The virtual host address to configure for integration with Marathon-lb.",
-          "type": "string"
         }
       },
       "required": [

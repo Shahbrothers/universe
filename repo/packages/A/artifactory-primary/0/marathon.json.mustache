@@ -63,9 +63,6 @@
        ]
    },
   "labels": {
-      {{#artifactory-primary.virtual-host}}
-      "HAPROXY_0_VHOST":"{{artifactory-primary.virtual-host}}",
-      {{/artifactory-primary.virtual-host}}
       "HAPROXY_GROUP":"external"
    },
    "env": {
@@ -77,13 +74,12 @@
    },
 "healthChecks": [
 {
-"protocol": "HTTP",
-"path": "/artifactory/api/system/ping",
+"protocol": "COMMAND",
+"command": "curl http://$HOST:8081/artifactory/api/system/ping",
 "gracePeriodSeconds": 3,
 "intervalSeconds": 10,
-"portIndex": 0,
 "timeoutSeconds": 10,
-"maxConsecutiveFailures": 0
+"maxConsecutiveFailures": 3,
 }
 ]
     {{#artifactory-primary.high-availability.unique-nodes}},

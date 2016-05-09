@@ -1,9 +1,9 @@
 {
   "packagingVersion": "2.0",
   "name": "artifactory-primary",
-  "version": "4.7.1",
-  "scm": "https://github.com/mesosphere/artifactory-mesos.git",
-  "maintainer": "support@mesosphere.io",
+  "version": "4.7.5",
+  "scm": "https://github.com/JfrogDev/artifactory-mesos.git",
+  "maintainer": "soleng-team@jfrog.com",
   "website": "https://jfrog.com",
   "framework": true,
   "description": "As the first, and only, universal Artifact Repository Manager on the market, JFrog Artifactory fully supports software packages created by any language or technology.",

@@ -60,11 +60,7 @@
         "artifactory-primary-url": {
           "description": "URL of Artifacctory primary node to get licenses for artifactory nodes",
           "type": "string",
-          "default" : "NONE"
-        },
-        "virtual-host": {
-          "description": "The virtual host address to configure for integration with Marathon-lb.",
-          "type": "string"
+          "default" : "http://artifactory-primary.marathon.mesos"
         }
       },
       "required": [
