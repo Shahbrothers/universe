@@ -12,10 +12,10 @@
        "type": "DOCKER",
        "docker": {
            {{^artifactory-secondary.high-availability.enabled}}
-           "image": "{{resource.assets.container.docker.cc0d778670de}}",
+           "image": "{{resource.assets.container.docker.e183c36bdb4b}}",
            {{/artifactory-secondary.high-availability.enabled}}
            {{#artifactory-secondary.high-availability.enabled}}
-           "image": "{{resource.assets.container.docker.d88f5d1a552f}}",
+           "image": "{{resource.assets.container.docker.11074572dd4b}}",
            {{/artifactory-secondary.high-availability.enabled}}
            "network": "HOST",
             "forcePullImage":true
@@ -70,13 +70,14 @@
    }
 ,"healthChecks": [
 {
-"protocol": "HTTP",
-"path": "/artifactory/api/system/ping",
+"protocol": "COMMAND",
+"command": {
+"value": "curl http://$HOST:8081/artifactory/api/system/ping"
+},
 "gracePeriodSeconds": 3,
 "intervalSeconds": 10,
-"portIndex": 0,
 "timeoutSeconds": 10,
-"maxConsecutiveFailures": 0
+"maxConsecutiveFailures": 3
 }
 ]
 {{#artifactory-secondary.high-availability.unique-nodes}},
