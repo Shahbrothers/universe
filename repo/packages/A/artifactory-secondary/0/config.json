@@ -29,7 +29,7 @@
             "enabled": {
               "description": "Run Artifactory in high availability mode.",
               "type": "boolean",
-              "default": false
+              "default": true
             },
             "nodes": {
               "description": "The number of nodes to run in high availability mode.",
