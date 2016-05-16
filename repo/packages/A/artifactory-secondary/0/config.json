@@ -10,11 +10,6 @@
           "type": "string",
           "default": "artifactory-secondary"
         },
-        "host": {
-          "description": "The host that Artifactory agents will use to connect back to the master.",
-          "type": "string",
-          "default": "$HOST"
-        },
         "cpus": {
           "description": "CPU shares to allocate to each Artifactory master.",
           "type": "number",
@@ -39,7 +34,7 @@
             "nodes": {
               "description": "The number of nodes to run in high availability mode.",
               "type": "number",
-              "default": 3
+              "default": 1
             },
             "unique-nodes": {
               "description": "Run nodes on unique hosts.",
@@ -65,7 +60,6 @@
       },
       "required": [
         "framework-name",
-        "host",
         "cpus",
         "mem",
         "artifactory-home"
