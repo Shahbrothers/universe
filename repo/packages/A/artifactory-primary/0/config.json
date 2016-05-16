@@ -10,11 +10,6 @@
           "type": "string",
           "default": "artifactory-primary"
         },
-        "host": {
-          "description": "The host that Artifactory agents will use to connect back to the master.",
-          "type": "string",
-          "default": "$HOST"
-        },
         "cpus": {
           "description": "CPU shares to allocate to each Artifactory master.",
           "type": "number",
@@ -88,7 +83,6 @@
       },
       "required": [
         "framework-name",
-        "host",
         "cpus",
         "mem",
         "artifactory-home"
