@@ -51,11 +51,6 @@
           "description": "The location of a volume on the host to be used for persisting the Artifactory home directory. The final location will be derived from this value plus the name set in `framework-name` (e.g. `/mnt/host_volume/artifactory`). If high-availability mode is on, this location will also include the Mesos task ID to avoid overlapping. Note that this path must be the same on all DCOS agents.",
           "type": "string",
           "default": "/tmp"
-        },
-        "artifactory-primary-url": {
-          "description": "URL of Artifacctory primary node to get licenses for artifactory nodes",
-          "type": "string",
-          "default" : "http://artifactory-primary.marathon.mesos"
         }
       },
       "required": [
