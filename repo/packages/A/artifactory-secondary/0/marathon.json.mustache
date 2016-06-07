@@ -6,8 +6,8 @@
     "container": {
             "type": "DOCKER",
             "docker": {
-            "image": "{{resource.assets.container.docker.artifactory-ha-secondary}}",
-            "network": "HOST",
+                "image": "{{resource.assets.container.docker.artifactory-ha-secondary}}",
+                "network": "HOST"
             },
              "volumes": [
                 {
@@ -40,10 +40,10 @@
                 "labels": {}
             },
             {
-            "port": 0,
-            "protocol": "tcp",
-            "name": "member",
-            "labels": {}
+                "port": 0,
+                "protocol": "tcp",
+                "name": "member",
+                "labels": {}
             }
             ],
     "healthChecks": [
