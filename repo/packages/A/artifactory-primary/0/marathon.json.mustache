@@ -14,21 +14,6 @@
                 "containerPath": "/var/opt/jfrog/cluster",
                 "hostPath": "{{artifactory-primary.cluster-home}}/cluster-home",
                 "mode": "RW"
-            },
-            {
-                "containerPath": "/var/opt/jfrog/artifactory/data",
-                "hostPath": "{{artifactory-primary.artifactory-home}}/{{artifactory-primary.framework-name}}/data",
-                "mode": "RW"
-            },
-            {
-                "containerPath": "/var/opt/jfrog/artifactory/logs",
-                "hostPath": "{{artifactory-primary.artifactory-home}}/{{artifactory-primary.framework-name}}/logs",
-                "mode": "RW"
-            },
-            {
-                "containerPath": "/var/opt/jfrog/artifactory/backup",
-                "hostPath": "{{artifactory-primary.artifactory-home}}/{{artifactory-primary.framework-name}}/backup",
-                "mode": "RW"
             }
          ]
     },
@@ -47,11 +32,18 @@
         }
         ],
     "env": {
-            "DATABASE_CONNECTION_STRING": "{{artifactory-primary.database.connection-string}}",
-            "DATABASE_USER":  "{{artifactory-primary.database.user}}",
-            "DATABASE_PASSWORD":  "{{artifactory-primary.database.password}}",
-            "PRIMARY_LICENSE": "{{artifactory-primary.primary-license}}",
-            "LICENSES": "{{artifactory-primary.licenses}}"
+            "ART_DATABASE_CONNECTION_STRING": "{{artifactory-primary.database.database-connection-string}}",
+            "ART_DATABASE_USER":  "{{artifactory-primary.database.database-user}}",
+            "ART_DATABASE_PASSWORD":  "{{artifactory-primary.database.database-password}}",
+            "ART_LICENSES": "{{artifactory-primary.artifactory-licenses}}"
+    },
+    "labels": {
+            "MARATHON_SINGLE_INSTANCE_APP": "true",
+            "DCOS_PACKAGE_FRAMEWORK_NAME": "{{artifactory-primary.framework-name}}"
+    },
+    "upgradeStrategy":{
+            "minimumHealthCapacity": 0,
+            "maximumOverCapacity": 0
     },
     "healthChecks": [
         {
@@ -68,4 +60,3 @@
             "constraints": [["hostname", "UNIQUE"]]
     {{/artifactory-primary.unique-nodes}}
 }
-
