@@ -7,9 +7,6 @@
 {{#nginx.contentDir}}
     "cmd": "rm -rf /usr/share/nginx/html && ln -s /mnt/mesos/sandbox/{{nginx.contentDir}} /usr/share/nginx/html && nginx -g 'daemon off;'",
 {{/nginx.contentDir}}
-{{#nginx.configUrl}}
-    "cmd": "cp /mnt/mesos/sandbox/nginx /etc/nginx/conf.d/. || cp /mnt/mesos/sandbox/*.conf /etc/nginx/conf.d/. && nginx -g 'daemon off;'",
-{{/nginx.configUrl}}
 "container": {
 "type": "DOCKER",
 "docker": {
@@ -41,11 +38,6 @@
     "{{nginx.contentUrl}}"
     ],
 {{/nginx.contentUrl}}
-{{#nginx.configUrl}}
-    "uris":[
-    "{{nginx.configUrl}}"
-    ],
-{{/nginx.configUrl}}
 "acceptedResourceRoles": [
 "{{nginx.role}}"
 ],
