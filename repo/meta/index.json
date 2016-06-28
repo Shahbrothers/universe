@@ -21,24 +21,8 @@
       "currentVersion":"4.8.2",
       "description":"As the first, and only, universal Artifact Repository Manager on the market, JFrog Artifactory fully supports software packages created by any language or technology.",
       "framework":true,
-      "name":"artifactory-primary",
-      "selected":true,
-      "tags":[
-        "mesosphere",
-        "framework",
-        "artifacts",
-        "artifactory"
-      ],
-      "versions":{
-        "4.8.2":"0"
-      }
-    },
-    {
-      "currentVersion":"4.8.2",
-      "description":"As the first, and only, universal Artifact Repository Manager on the market, JFrog Artifactory fully supports software packages created by any language or technology.",
-      "framework":true,
-      "name":"artifactory-secondary",
-      "selected":true,
+      "name":"artifactory",
+      "selected":false,
       "tags":[
         "mesosphere",
         "framework",
