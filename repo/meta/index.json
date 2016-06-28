@@ -291,6 +291,22 @@
       }
     },
     {
+      "currentVersion":"1.10.1",
+      "description":"Nginx package",
+      "framework":false,
+      "name":"nginx is a high performance HTTP and reverse proxy server.",
+      "selected":false,
+      "tags":[
+        "proxy",
+        "web-server",
+        "cache",
+        "reverse-proxy"
+      ],
+      "versions":{
+        "1.10.1":"0"
+      }
+    },
+    {
       "currentVersion":"0.0.0-0.1",
       "description":"Your private path to access network resources and services securely: Server service",
       "framework":false,
