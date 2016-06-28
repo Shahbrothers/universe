@@ -292,9 +292,9 @@
     },
     {
       "currentVersion":"1.10.1",
-      "description":"Nginx package",
+      "description":"nginx is a high performance HTTP and reverse proxy server.",
       "framework":false,
-      "name":"nginx is a high performance HTTP and reverse proxy server.",
+      "name":"nginx",
       "selected":false,
       "tags":[
         "proxy",
@@ -303,7 +303,8 @@
         "reverse-proxy"
       ],
       "versions":{
-        "1.10.1":"0"
+        "1.10.1":"2",
+        "1.8.1":"0"
       }
     },
     {
