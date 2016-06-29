@@ -4,58 +4,58 @@
     "mem": {{service.mem}},
     "instances": 1,
     "container": {
-    "type": "DOCKER",
-    "docker": {
-        {{^high-availability.enabled}}
-                "image": "{{resource.assets.container.docker.artifactory-pro}}",
-        {{/high-availability.enabled}}
-        {{#high-availability.enabled}}
-            {{^high-availability.secondary.enabled}}
-                "image": "{{resource.assets.container.docker.artifactory-ha-primary}}",
-            {{/high-availability.secondary.enabled}}
-            {{#high-availability.secondary.enabled}}
-                "image": "{{resource.assets.container.docker.artifactory-ha-secondary}}",
-            {{/high-availability.secondary.enabled}}
-        {{/high-availability.enabled}}
-                "network": "HOST"
-        },
-    "volumes": [
+        "type": "DOCKER",
+        "docker": {
+            {{^high-availability.enabled}}
+                    "image": "{{resource.assets.container.docker.artifactory-pro}}",
+            {{/high-availability.enabled}}
+            {{#high-availability.enabled}}
+                {{^high-availability.secondary.enabled}}
+                    "image": "{{resource.assets.container.docker.artifactory-ha-primary}}",
+                {{/high-availability.secondary.enabled}}
+                {{#high-availability.secondary.enabled}}
+                    "image": "{{resource.assets.container.docker.artifactory-ha-secondary}}",
+                {{/high-availability.secondary.enabled}}
+            {{/high-availability.enabled}}
+                    "network": "HOST"
+            },
+        "volumes": [
             {{^high-availability.enabled}}
                 {{#pro.external-volumes.enabled}}
                     {
-                        "containerPath": "/var/opt/jfrog/cluster",
-                        "external": {
-                        "name": "{{service.name}}-cluster",
-                        "provider": "dvdi",
-                        "options": { "dvdi/driver": "rexray" }
-                    },
-                    "mode": "RW"
+                            "containerPath": "/var/opt/jfrog/cluster",
+                            "external": {
+                                 "name": "{{service.name}}-cluster",
+                                 "provider": "dvdi",
+                                 "options": { "dvdi/driver": "rexray" }
+                             },
+                            "mode": "RW"
                     }
                 {{/pro.external-volumes.enabled}}
                 {{^pro.external-volumes.enabled}}
-                    {
-                        "containerPath": "/var/opt/jfrog/cluster",
-                        "hostPath": "cluster",
-                        "mode": "RW"
-                    },
-                    {
-                        "containerPath": "cluster",
-                        "mode": "RW",
-                        "persistent": {
-                        "size": {{pro.local-volumes.cluster-home-size}}
+                        {
+                            "containerPath": "/var/opt/jfrog/cluster",
+                            "hostPath": "cluster",
+                            "mode": "RW"
+                        },
+                        {
+                            "containerPath": "cluster",
+                            "mode": "RW",
+                            "persistent": {
+                            "size": {{pro.local-volumes.cluster-home-size}}
+                        }
                     }
-                }
                 {{/pro.external-volumes.enabled}}
             {{/high-availability.enabled}}
             {{#high-availability.enabled}}
-                {
-                    "containerPath": "/var/opt/jfrog/cluster",
-                    "hostPath": "{{high-availability.cluster-home}}/cluster-home",
-                    "mode": "RW"
-                }
+                    {
+                        "containerPath": "/var/opt/jfrog/cluster",
+                        "hostPath": "{{high-availability.cluster-home}}/cluster-home",
+                        "mode": "RW"
+                    }
             {{/high-availability.enabled}}
-                ]
-        },
+                    ]
+            },
     "portDefinitions": [
             {
                 "port": 0,
