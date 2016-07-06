@@ -2,17 +2,7 @@
 "id": "{{service.name}}{{#high-availability.enabled}}{{^high-availability.secondary.enabled}}-primary{{/high-availability.secondary.enabled}}{{#high-availability.secondary.enabled}}-secondary{{/high-availability.secondary.enabled}}{{/high-availability.enabled}}",
 "cpus": {{service.cpus}},
 "mem": {{service.mem}},
-{{^high-availability.enabled}}
-    "instances": 1,
-{{/high-availability.enabled}}
-{{#high-availability.enabled}}
-    {{^high-availability.secondary.enabled}}
-        "instances": 1,
-    {{/high-availability.secondary.enabled}}
-    {{#high-availability.secondary.enabled}}
-        "instances": {{artifactory-secondary.node}},
-    {{/high-availability.secondary.enabled}}
-{{/high-availability.enabled}}
+"instances": 1,
 "container": {
 "type": "DOCKER",
 "docker": {
@@ -33,25 +23,7 @@
 {{^high-availability.enabled}}
     {{#pro.external-volumes.enabled}}
         {
-        "containerPath": "/var/opt/jfrog/artifactory/logs",
-        "external": {
-        "name": "{{service.name}}",
-        "provider": "dvdi",
-        "options": { "dvdi/driver": "rexray" }
-        },
-        "mode": "RW"
-        },
-        {
-        "containerPath": "/var/opt/jfrog/artifactory/data",
-        "external": {
-        "name": "{{service.name}}",
-        "provider": "dvdi",
-        "options": { "dvdi/driver": "rexray" }
-        },
-        "mode": "RW"
-        },
-        {
-        "containerPath": "/var/opt/jfrog/artifactory/etc",
+        "containerPath": "/var/opt/jfrog/artifactory",
         "external": {
         "name": "{{service.name}}",
         "provider": "dvdi",
@@ -62,17 +34,7 @@
     {{/pro.external-volumes.enabled}}
     {{^pro.external-volumes.enabled}}
         {
-        "containerPath": "/var/opt/jfrog/artifactory/logs",
-        "hostPath": "artifactory",
-        "mode": "RW"
-        },
-        {
-        "containerPath": "/var/opt/jfrog/artifactory/etc",
-        "hostPath": "artifactory",
-        "mode": "RW"
-        },
-        {
-        "containerPath": "/var/opt/jfrog/artifactory/data",
+        "containerPath": "/var/opt/jfrog/artifactory",
         "hostPath": "artifactory",
         "mode": "RW"
         },
@@ -113,9 +75,9 @@
         "ART_API_KEY": "{{artifactory-secondary.api-key}}",
     {{/high-availability.secondary.enabled}}
 {{/high-availability.enabled}}
-"ART_DATABASE_CONNECTION_STRING": "{{high-availability.database.connection-string}}",
-"ART_DATABASE_USER":  "{{high-availability.database.user}}",
-"ART_DATABASE_PASSWORD":  "{{high-availability.database.password}}"
+"ART_DATABASE_CONNECTION_STRING": "{{database.connection-string}}",
+"ART_DATABASE_USER":  "{{database.user}}",
+"ART_DATABASE_PASSWORD":  "{{database.password}}"
 },
 "labels": {
 {{^high-availability.secondary.enabled}}
