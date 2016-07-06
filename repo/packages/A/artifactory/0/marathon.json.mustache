@@ -23,7 +23,25 @@
 {{^high-availability.enabled}}
     {{#pro.external-volumes.enabled}}
         {
-        "containerPath": "/var/opt/jfrog/artifactory",
+        "containerPath": "/var/opt/jfrog/artifactory/logs",
+        "external": {
+        "name": "{{service.name}}",
+        "provider": "dvdi",
+        "options": { "dvdi/driver": "rexray" }
+        },
+        "mode": "RW"
+        },
+        {
+        "containerPath": "/var/opt/jfrog/artifactory/etc",
+        "external": {
+        "name": "{{service.name}}",
+        "provider": "dvdi",
+        "options": { "dvdi/driver": "rexray" }
+        },
+        "mode": "RW"
+        },
+        {
+        "containerPath": "/var/opt/jfrog/artifactory/data",
         "external": {
         "name": "{{service.name}}",
         "provider": "dvdi",
@@ -34,7 +52,31 @@
     {{/pro.external-volumes.enabled}}
     {{^pro.external-volumes.enabled}}
         {
-        "containerPath": "/var/opt/jfrog/artifactory",
+        "containerPath": "/var/opt/jfrog/artifactory/logs",
+        "hostPath": "artifactory",
+        "mode": "RW"
+        },
+        {
+        "containerPath": "artifactory",
+        "mode": "RW",
+        "persistent": {
+        "size": {{pro.local-volumes.artifactory-home-size}}
+        }
+        },
+        {
+        "containerPath": "/var/opt/jfrog/artifactory/data",
+        "hostPath": "artifactory",
+        "mode": "RW"
+        },
+        {
+        "containerPath": "artifactory",
+        "mode": "RW",
+        "persistent": {
+        "size": {{pro.local-volumes.artifactory-home-size}}
+        }
+        },
+        {
+        "containerPath": "/var/opt/jfrog/artifactory/etc",
         "hostPath": "artifactory",
         "mode": "RW"
         },
