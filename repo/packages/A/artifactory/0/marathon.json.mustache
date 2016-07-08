@@ -127,6 +127,9 @@
         "ART_API_KEY": "{{artifactory-secondary.api-key}}",
     {{/high-availability.secondary.enabled}}
 {{/high-availability.enabled}}
+{{^high-availability.enabled}}
+    "ART_LICENSE": "{{pro.license}}",
+{{/high-availability.enabled}}
 "ART_DATABASE_CONNECTION_STRING": "{{database.connection-string}}",
 "ART_DATABASE_USER":  "{{database.user}}",
 "ART_DATABASE_PASSWORD":  "{{database.password}}"
