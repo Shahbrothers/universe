@@ -2,6 +2,17 @@
 "id": "{{service.name}}{{#high-availability.enabled}}{{^high-availability.secondary.enabled}}-primary{{/high-availability.secondary.enabled}}{{#high-availability.secondary.enabled}}-secondary{{/high-availability.secondary.enabled}}{{/high-availability.enabled}}",
 "cpus": {{service.cpus}},
 "mem": {{service.mem}},
+{{^high-availability.enabled}}
+    "instances": 1,
+{{/high-availability.enabled}}
+{{#high-availability.enabled}}
+    {{^high-availability.secondary.enabled}}
+        "instances": 1,
+    {{/high-availability.secondary.enabled}}
+    {{#high-availability.secondary.enabled}}
+        "instances": {{artifactory-secondary.nodes}},
+    {{/high-availability.secondary.enabled}}
+{{/high-availability.enabled}}
 "instances": 1,
 "container": {
 "type": "DOCKER",
