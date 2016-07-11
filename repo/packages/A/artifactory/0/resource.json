@@ -12,5 +12,39 @@
         "artifactory-ha-secondary": "jfrog-docker-reg2.bintray.io/jfrog/artifactory-ha-secondary:4.8.2"
       }
     }
+  },
+  "cli":{
+  "binaries": {
+    "darwin": {
+      "x86-64": {
+        "contentHash": [{
+          "algo": "sha256",
+          "value": "581981a92aea7edc8cda61b97d01765a0eff546c0c93043be0da3080f85d48bf"
+        }],
+        "kind": "executable",
+        "url": "https://jfrog.bintray.com/jfrog-cli-go/1.3.2/jfrog-cli-mac-386/jfrog"
+      }
+    },
+    "linux": {
+      "x86-64": {
+        "contentHash": [{
+          "algo": "sha256",
+          "value": "806B06C9240D6DC28492EE28C7C3F14881C3FB05268329B47FEE93E7B7210476"
+        }],
+        "kind": "executable",
+        "url": "https://jfrog.bintray.com/jfrog-cli-go/1.3.2/jfrog-cli-linux-amd64/jfrog"
+      }
+    },
+    "windows": {
+      "x86-64": {
+        "contentHash": [{
+          "algo": "sha256",
+          "value": "f502d4d20c9611215b988d014cec2d03ee271fbe6a0c34b81c103cd9d2a6fdef"
+        }],
+        "kind": "executable",
+        "url": "https://jfrog.bintray.com/jfrog-cli-go/1.3.2/windows_amd64/jfrog.exe"
+      }
+    }
   }
+}
 }
