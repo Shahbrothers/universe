@@ -35,7 +35,7 @@
         {
         "containerPath": "/var/opt/jfrog/artifactory/logs",
         "external": {
-        "name": "{{service.name}}",
+        "name": "{{service.name}}-logs",
         "provider": "dvdi",
         "options": { "dvdi/driver": "rexray" }
         },
@@ -44,7 +44,7 @@
         {
         "containerPath": "/var/opt/jfrog/artifactory/etc",
         "external": {
-        "name": "{{service.name}}",
+        "name": "{{service.name}}-etc",
         "provider": "dvdi",
         "options": { "dvdi/driver": "rexray" }
         },
@@ -53,7 +53,7 @@
         {
         "containerPath": "/var/opt/jfrog/artifactory/data",
         "external": {
-        "name": "{{service.name}}",
+        "name": "{{service.name}}-data",
         "provider": "dvdi",
         "options": { "dvdi/driver": "rexray" }
         },
@@ -63,11 +63,11 @@
     {{^pro.external-volumes.enabled}}
         {
         "containerPath": "/var/opt/jfrog/artifactory/logs",
-        "hostPath": "artifactory",
+        "hostPath": "artifactory-logs",
         "mode": "RW"
         },
         {
-        "containerPath": "artifactory",
+        "containerPath": "artifactory-logs",
         "mode": "RW",
         "persistent": {
         "size": {{pro.local-volumes.artifactory-home-size}}
@@ -75,11 +75,11 @@
         },
         {
         "containerPath": "/var/opt/jfrog/artifactory/data",
-        "hostPath": "artifactory",
+        "hostPath": "artifactory-data",
         "mode": "RW"
         },
         {
-        "containerPath": "artifactory",
+        "containerPath": "artifactory-data",
         "mode": "RW",
         "persistent": {
         "size": {{pro.local-volumes.artifactory-home-size}}
@@ -87,11 +87,11 @@
         },
         {
         "containerPath": "/var/opt/jfrog/artifactory/etc",
-        "hostPath": "artifactory",
+        "hostPath": "artifactory-etc",
         "mode": "RW"
         },
         {
-        "containerPath": "artifactory",
+        "containerPath": "artifactory-etc",
         "mode": "RW",
         "persistent": {
         "size": {{pro.local-volumes.artifactory-home-size}}
