@@ -68,12 +68,7 @@
               "description": "Database password.",
               "type": "string"
             }
-          },
-          "required": [
-            "connection-string",
-            "user",
-            "password"
-          ]
+          }
         },
         "external-volumes": {
           "description": "External persistent volumes configuration. External persistent volumes are a DC/OS feature that allow your data to be migrated with your task.",
@@ -132,12 +127,7 @@
               "description": "Database password.",
               "type": "string"
             }
-          },
-          "required": [
-            "connection-string",
-            "user",
-            "password"
-          ]
+          }
         },
         "secondary": {
           "description": "Configuration properties for the Artifactory HA secondary node.",
@@ -170,6 +160,7 @@
       },
       "required": [
         "enabled",
+        "database",
         "licenses"
       ]
     }
