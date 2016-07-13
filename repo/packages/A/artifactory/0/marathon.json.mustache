@@ -123,16 +123,19 @@
 "env": {
 {{#high-availability.enabled}}
     "ART_LICENSES": "{{high-availability.licenses}}",
+    "ART_DATABASE_CONNECTION_STRING": "{{high-availability.database.connection-string}}",
+    "ART_DATABASE_USER":  "{{high-availability.database.user}}",
+    "ART_DATABASE_PASSWORD":  "{{high-availability.database.password}}",
     {{#high-availability.secondary.enabled}}
         "ART_API_KEY": "{{artifactory-secondary.api-key}}",
     {{/high-availability.secondary.enabled}}
 {{/high-availability.enabled}}
 {{^high-availability.enabled}}
     "ART_LICENSE": "{{pro.license}}",
+    "ART_DATABASE_CONNECTION_STRING": "{{pro.database.connection-string}}",
+    "ART_DATABASE_USER":  "{{pro.database.user}}",
+    "ART_DATABASE_PASSWORD":  "{{pro.database.password}}",
 {{/high-availability.enabled}}
-"ART_DATABASE_CONNECTION_STRING": "{{database.connection-string}}",
-"ART_DATABASE_USER":  "{{database.user}}",
-"ART_DATABASE_PASSWORD":  "{{database.password}}"
 },
 "labels": {
 {{^high-availability.secondary.enabled}}
