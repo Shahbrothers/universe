@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "artifactory-lb": {
+      "description": "Artifactory-lb framework configuration properties",
+      "type": "object",
+      "properties": {
+        "framework-name": {
+          "description": "The framework name to register with Mesos.",
+          "type": "string",
+          "default": "artifactory-lb"
+        },
+        "cpus": {
+          "description": "CPU shares to allocate to artifactory-lb instance.",
+          "type": "number",
+          "default": 1.0,
+          "minimum": 0.5
+        },
+        "mem": {
+          "description": "Memory to allocate to artifactory-lb instance.",
+          "type": "number",
+          "default": 1024.0,
+          "minimum": 512.0
+        },
+        "artifactory_user": {
+          "description": "Run nodes on unique hosts.",
+          "type": "string",
+          "default": "admin"
+        },
+        "artifactory_password": {
+          "description": "Run nodes on unique hosts.",
+          "type": "string",
+          "default": "password"
+        },
+        "artifactory_server_name": {
+          "description": "Run nodes on unique hosts.",
+          "type": "string",
+          "default": "artifactory-lb.marathon.mesos"
+        },
+        "artifactory_base_url": {
+          "description": "Run nodes on unique hosts.",
+          "type": "string"
+        },
+        "bridge": {
+          "default": false,
+          "description": "Whether to use BRIDGE networking mode for Docker container. By default, this is false and HOST mode networking is used.",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "framework-name",
+        "cpus",
+        "mem",
+        "artifactory_user",
+        "artifactory_password",
+        "artifactory_server_name",
+        "bridge"
+      ]
+    }
+  },
+  "required": [
+    "artifactory-lb"
+  ]
+}

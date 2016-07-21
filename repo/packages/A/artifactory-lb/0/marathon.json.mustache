@@ -1,0 +1,58 @@
+{
+"id": "/{{artifactory-lb.framework-name}}",
+"cpus": {{artifactory-lb.cpus}},
+"mem": {{artifactory-lb.mem}},
+"instances": {{artifactory-lb.instances}},
+"constraints": [
+                    [
+                        "hostname",
+                        "UNIQUE"
+                    ]
+    ],
+"acceptedResourceRoles": [
+"slave_public"
+],
+"container": {
+    "type": "DOCKER",
+    "docker": {
+    "image": "{{resource.assets.container.docker.artifactory-lb}}",
+        {{#artifactory-lb.bridge}}
+            "network": "BRIDGE",
+            "portMappings": [
+                {
+                "containerPort": 80,
+                "hostPort": 0
+                },
+                {
+                "containerPort": 443,
+                "hostPort": 0
+                }
+            ],
+            {{/artifactory-lb.bridge}}
+            {{^artifactory-lb.bridge}}
+                "network": "HOST",
+            {{/artifactory-lb.bridge}}
+            "forcePullImage": true
+        }
+    },
+    "env": {
+    "ART_LOGIN": "{{artifactory-lb.artifactory_user}}",
+    "ART_SERVER_NAME": "{{artifactory-lb.artifactory_server_name}}",
+    "ART_PASSWORD": "{{artifactory-lb.artifactory_password}}",
+    "ART_BASE_URL": "{{artifactory-lb.artifactory_base_url}}"
+    },
+    "healthChecks": [
+    {
+    "protocol": "COMMAND",
+    "command": {
+    "value": "curl http://$HOST:9090/health"
+    },
+    "gracePeriodSeconds": 300,
+    "intervalSeconds": 60,
+    "timeoutSeconds": 20,
+    "maxConsecutiveFailures": 3,
+    "ignoreHttp1xx": false
+    }
+    ]
+
+}
