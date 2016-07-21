@@ -16,6 +16,12 @@
           "default": 1.0,
           "minimum": 0.5
         },
+        "instances": {
+          "default": 1,
+          "description": "Number of instances to run.",
+          "minimum": 1,
+          "type": "integer"
+        },
         "mem": {
           "description": "Memory to allocate to artifactory-lb instance.",
           "type": "number",
