@@ -20,7 +20,7 @@
     {
       "currentVersion":"4.8.2",
       "description":"As the first, and only, universal Artifact Repository Manager on the market, JFrog Artifactory fully supports software packages created by any language or technology.",
-      "framework":true,
+      "framework":false,
       "name":"artifactory",
       "selected":false,
       "tags":[
@@ -28,6 +28,23 @@
         "framework",
         "artifacts",
         "artifactory"
+      ],
+      "versions":{
+        "4.8.2":"0"
+      }
+    },
+    {
+      "currentVersion":"4.8.2",
+      "description":"Load Balancer for JFrog Artifactory Pro and High Availability.",
+      "framework":false,
+      "name":"artifactory-lb",
+      "selected":false,
+      "tags":[
+        "mesosphere",
+        "framework",
+        "artifacts",
+        "artifactory",
+        "artifactory-lb"
       ],
       "versions":{
         "4.8.2":"0"

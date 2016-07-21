@@ -1,5 +1,5 @@
 {
-  "packagingVersion": "3.0",
+  "packagingVersion": "2.0",
   "name": "artifactory",
   "version": "4.8.2",
   "scm": "https://github.com/JfrogDev/artifactory-mesos.git",
