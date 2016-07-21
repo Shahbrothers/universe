@@ -58,15 +58,18 @@
           "properties": {
             "connection-string": {
               "description": "Database connection string.",
-              "type": "string"
+              "type": "string",
+              "default": "jdbc:mysql://mysql.marathon.mesos:3306/artdb?characterEncoding=UTF-8&elideSetAutoCommits=true"
             },
             "user": {
               "description": "Database username.",
-              "type": "string"
+              "type": "string",
+              "default": "root"
             },
             "password": {
               "description": "Database password.",
-              "type": "string"
+              "type": "string",
+              "default": "jfrogmesos"
             }
           }
         },
@@ -117,15 +120,18 @@
           "properties": {
             "connection-string": {
               "description": "Database connection string.",
-              "type": "string"
+              "type": "string",
+              "default": "jdbc:mysql://mysql.marathon.mesos:3306/artdb?characterEncoding=UTF-8&elideSetAutoCommits=true"
             },
             "user": {
               "description": "Database username.",
-              "type": "string"
+              "type": "string",
+              "default": "root"
             },
             "password": {
               "description": "Database password.",
-              "type": "string"
+              "type": "string",
+              "default": "jfrogmesos"
             }
           }
         },
