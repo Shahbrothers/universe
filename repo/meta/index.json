@@ -41,7 +41,6 @@
       "selected":false,
       "tags":[
         "mesosphere",
-        "framework",
         "artifacts",
         "artifactory",
         "artifactory-lb"
