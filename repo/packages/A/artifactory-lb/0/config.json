@@ -1,17 +1,17 @@
 {
   "type": "object",
   "properties": {
-    "artifactory-lb": {
-      "description": "Artifactory-lb framework configuration properties",
+    "service": {
+      "description": "Artifactory-lb service properties",
       "type": "object",
       "properties": {
-        "framework-name": {
-          "description": "The framework name to register with Mesos.",
+        "name": {
+          "description": "The name of this DC/OS service.",
           "type": "string",
           "default": "artifactory-lb"
         },
         "cpus": {
-          "description": "CPU shares to allocate to artifactory-lb instance.",
+          "description": "CPU shares to allocate to this instance.",
           "type": "number",
           "default": 1.0,
           "minimum": 0.5
@@ -23,29 +23,10 @@
           "type": "integer"
         },
         "mem": {
-          "description": "Memory to allocate to artifactory-lb instance.",
+          "description": "Memory to allocate to this instance.",
           "type": "number",
           "default": 1024.0,
           "minimum": 512.0
-        },
-        "artifactory_user": {
-          "description": "Run nodes on unique hosts.",
-          "type": "string",
-          "default": "admin"
-        },
-        "artifactory_password": {
-          "description": "Run nodes on unique hosts.",
-          "type": "string",
-          "default": "password"
-        },
-        "artifactory_server_name": {
-          "description": "Run nodes on unique hosts.",
-          "type": "string",
-          "default": "artifactory-lb.marathon.mesos"
-        },
-        "artifactory_base_url": {
-          "description": "Run nodes on unique hosts.",
-          "type": "string"
         },
         "bridge": {
           "default": false,
@@ -54,17 +35,41 @@
         }
       },
       "required": [
-        "framework-name",
+        "name",
         "cpus",
         "mem",
-        "artifactory_user",
-        "artifactory_password",
-        "artifactory_server_name",
         "bridge"
+      ]
+    },
+    "artifactory": {
+      "description": "Artifactory-lb service properties",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The DC/OS service name of the Artifactory server to route requests to.",
+          "type": "string",
+          "default": "artifactory"
+        },
+        "user": {
+          "description": "Username to use when fetching reverse proxy configuration from Artifactory.",
+          "type": "string",
+          "default": "admin"
+        },
+        "password": {
+          "description": "Password to use when fetching reverse proxy configuration from Artifactory.",
+          "type": "string",
+          "default": "password"
+        }
+      },
+      "required": [
+        "name",
+        "user",
+        "password"
       ]
     }
   },
   "required": [
-    "artifactory-lb"
+    "service",
+    "artifactory"
   ]
 }

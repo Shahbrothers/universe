@@ -1,58 +1,46 @@
 {
-"id": "/{{artifactory-lb.framework-name}}",
-"cpus": {{artifactory-lb.cpus}},
-"mem": {{artifactory-lb.mem}},
-"instances": {{artifactory-lb.instances}},
-"constraints": [
-                    [
-                        "hostname",
-                        "UNIQUE"
-                    ]
-    ],
+"id": "/{{service.name}}",
+"cpus": {{service.cpus}},
+"mem": {{service.mem}},
+"instances": {{service.instances}},
+"constraints": [[ "hostname", "UNIQUE"]],
 "acceptedResourceRoles": [
 "slave_public"
 ],
 "container": {
-    "type": "DOCKER",
-    "docker": {
-    "image": "{{resource.assets.container.docker.artifactory-lb}}",
-        {{#artifactory-lb.bridge}}
-            "network": "BRIDGE",
-            "portMappings": [
-                {
-                "containerPort": 80,
-                "hostPort": 0
-                },
-                {
-                "containerPort": 443,
-                "hostPort": 0
-                }
-            ],
-            {{/artifactory-lb.bridge}}
-            {{^artifactory-lb.bridge}}
-                "network": "HOST",
-            {{/artifactory-lb.bridge}}
-            "forcePullImage": true
-        }
+"type": "DOCKER",
+"docker": {
+"image": "{{resource.assets.container.docker.artifactory-lb}}",
+{{#service.bridge}}
+    "network": "BRIDGE",
+    "portMappings": [{
+    "containerPort": 80,
+    "hostPort": 0
     },
-    "env": {
-    "ART_LOGIN": "{{artifactory-lb.artifactory_user}}",
-    "ART_SERVER_NAME": "{{artifactory-lb.artifactory_server_name}}",
-    "ART_PASSWORD": "{{artifactory-lb.artifactory_password}}",
-    "ART_BASE_URL": "{{artifactory-lb.artifactory_base_url}}"
-    },
-    "healthChecks": [
     {
-    "protocol": "COMMAND",
-    "command": {
-    "value": "curl http://$HOST:$PORT0/health"
-    },
-    "gracePeriodSeconds": 300,
-    "intervalSeconds": 60,
-    "timeoutSeconds": 20,
-    "maxConsecutiveFailures": 3,
-    "ignoreHttp1xx": false
-    }
-    ]
-
+    "containerPort": 443,
+    "hostPort": 0
+    }],
+{{/service.bridge}}
+{{^service.bridge}}
+    "network": "HOST",
+{{/service.bridge}}
+}
+},
+"env": {
+"ART_SERVICE_NAME": "{{artifactory.name}}",
+"ART_LOGIN": "{{artifactory.user}}",
+"ART_PASSWORD": "{{artifactory.password}}"
+},
+"healthChecks": [{
+"protocol": "COMMAND",
+"command": {
+"value": "curl http://$HOST:$PORT0/health"
+},
+"gracePeriodSeconds": 300,
+"intervalSeconds": 60,
+"timeoutSeconds": 20,
+"maxConsecutiveFailures": 3,
+"ignoreHttp1xx": false
+}]
 }

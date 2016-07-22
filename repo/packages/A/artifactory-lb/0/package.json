@@ -7,7 +7,7 @@
   "website": "https://jfrog.com",
   "framework": false,
   "description": "Load Balancer for JFrog Artifactory Pro and High Availability.",
-  "tags": ["mesosphere", "framework", "artifacts", "artifactory","artifactory-lb"],
+  "tags": ["mesosphere", "artifacts", "artifactory","artifactory-lb"],
   "preInstallNotes": "Make sure you have running Artifactory Pro or Artifactory High Availability.",
   "postInstallNotes": "Artifactory-lb has been installed.",
   "postUninstallNotes": "Artifactory-lb has been uninstalled.",
