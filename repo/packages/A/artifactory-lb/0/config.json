@@ -32,44 +32,68 @@
           "default": false,
           "description": "Whether to use BRIDGE networking mode for Docker container. By default, this is false and HOST mode networking is used.",
           "type": "boolean"
-        }
+        },
+        "ssl_cert": {
+          "description": "Whether to use SSL Certificate. If selected it will fetch SSL Certificate and Key from Provided URL",
+          "type": "object",
+          "properties": {
+            "enabled": {
+              "description": "If enabled then it will use provided URL to download SSL Certificate and Key",
+              "type": "boolean",
+              "default": false
+            },
+            "ssl_key_path": {
+              "description": "The full path of the key file on the web server.",
+              "type": "string",
+              "default": "http://www.example.com/example.key"
+            },
+            "ssl_cert_path": {
+              "description": "The full path of the certificate file on the web server.",
+              "type": "string",
+              "default": "http://www.example.com/example.crt"
+            }
+          },
+          "required": [
+            "enabled"
+          ]
+        },
+        "required": [
+          "name",
+          "cpus",
+          "mem",
+          "bridge"
+        ]
       },
-      "required": [
-        "name",
-        "cpus",
-        "mem",
-        "bridge"
-      ]
+      "artifactory": {
+        "description": "Artifactory-lb service properties",
+        "type": "object",
+        "properties": {
+          "name": {
+            "description": "The DC/OS service name of the Artifactory server to route requests to.",
+            "type": "string",
+            "default": "artifactory"
+          },
+          "user": {
+            "description": "Username to use when fetching reverse proxy configuration from Artifactory.",
+            "type": "string",
+            "default": "admin"
+          },
+          "password": {
+            "description": "Password to use when fetching reverse proxy configuration from Artifactory.",
+            "type": "string",
+            "default": "password"
+          }
+        },
+        "required": [
+          "name",
+          "user",
+          "password"
+        ]
+      }
     },
-    "artifactory": {
-      "description": "Artifactory-lb service properties",
-      "type": "object",
-      "properties": {
-        "name": {
-          "description": "The DC/OS service name of the Artifactory server to route requests to.",
-          "type": "string",
-          "default": "artifactory"
-        },
-        "user": {
-          "description": "Username to use when fetching reverse proxy configuration from Artifactory.",
-          "type": "string",
-          "default": "admin"
-        },
-        "password": {
-          "description": "Password to use when fetching reverse proxy configuration from Artifactory.",
-          "type": "string",
-          "default": "password"
-        }
-      },
-      "required": [
-        "name",
-        "user",
-        "password"
-      ]
-    }
-  },
-  "required": [
-    "service",
-    "artifactory"
-  ]
+    "required": [
+      "service",
+      "artifactory"
+    ]
+  }
 }

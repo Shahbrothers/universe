@@ -27,6 +27,12 @@
 {{/service.bridge}}
 }
 },
+{{#service.ssl_cert}}
+"fetch": [
+{ "uri": "{{artifactory.ssl_key_path}}" },
+{ "uri": "{{artifactory.ssl_cert_path}}" }
+],
+{{/service.ssl_cert}}
 "env": {
 "ART_SERVICE_NAME": "{{artifactory.name}}",
 "ART_LOGIN": "{{artifactory.user}}",
