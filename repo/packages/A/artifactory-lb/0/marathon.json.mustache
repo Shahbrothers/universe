@@ -27,7 +27,7 @@
 {{/service.bridge}}
 }
 },
-{{#service.ssl_cert}}
+{{^service.ssl_cert}}
 "fetch": [
 { "uri": "{{artifactory.ssl_key_path}}" },
 { "uri": "{{artifactory.ssl_cert_path}}" }
