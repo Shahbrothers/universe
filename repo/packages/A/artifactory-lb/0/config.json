@@ -56,44 +56,44 @@
           "required": [
             "enabled"
           ]
-        },
-        "required": [
-          "name",
-          "cpus",
-          "mem",
-          "bridge"
-        ]
+        }
       },
-      "artifactory": {
-        "description": "Artifactory-lb service properties",
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "The DC/OS service name of the Artifactory server to route requests to.",
-            "type": "string",
-            "default": "artifactory"
-          },
-          "user": {
-            "description": "Username to use when fetching reverse proxy configuration from Artifactory.",
-            "type": "string",
-            "default": "admin"
-          },
-          "password": {
-            "description": "Password to use when fetching reverse proxy configuration from Artifactory.",
-            "type": "string",
-            "default": "password"
-          }
-        },
-        "required": [
-          "name",
-          "user",
-          "password"
-        ]
-      }
+      "required": [
+        "name",
+        "cpus",
+        "mem",
+        "bridge"
+      ]
     },
-    "required": [
-      "service",
-      "artifactory"
-    ]
-  }
+    "artifactory": {
+      "description": "Artifactory-lb service properties",
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "The DC/OS service name of the Artifactory server to route requests to.",
+          "type": "string",
+          "default": "artifactory"
+        },
+        "user": {
+          "description": "Username to use when fetching reverse proxy configuration from Artifactory.",
+          "type": "string",
+          "default": "admin"
+        },
+        "password": {
+          "description": "Password to use when fetching reverse proxy configuration from Artifactory.",
+          "type": "string",
+          "default": "password"
+        }
+      },
+      "required": [
+        "name",
+        "user",
+        "password"
+      ]
+    }
+  },
+  "required": [
+    "service",
+    "artifactory"
+  ]
 }
