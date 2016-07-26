@@ -26,8 +26,8 @@
 },
 {{#service.ssl.enabled}}
     "fetch": [
-    { "uri": "{{artifactory.ssl.ssl_key_path}}" },
-    { "uri": "{{artifactory.ssl.ssl_cert_path}}" }
+    { "uri": "{{service.ssl.ssl_key_path}}" },
+    { "uri": "{{service.ssl.ssl_cert_path}}" }
     ],
 {{/service.ssl.enabled}}
 "env": {
