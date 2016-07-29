@@ -17,6 +17,10 @@
     {
     "containerPort": 443,
     "hostPort": 0
+    },
+    {
+    "containerPort": 5001,
+    "hostPort": 5001
     }]
 {{/service.bridge}}
 {{^service.bridge}}
@@ -43,6 +47,11 @@
     "port": 443,
     "protocol": "tcp",
     "name": "artifactory-lb-https"
+    },
+    {
+    "port": 5001,
+    "protocol": "tcp",
+    "name": "artifactory-lb-docker"
     }],
     "requirePorts": true,
 {{/service.bridge}}
