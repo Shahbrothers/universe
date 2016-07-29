@@ -70,7 +70,7 @@
         "containerPath": "artifactory-logs",
         "mode": "RW",
         "persistent": {
-        "size": {{pro.local-volumes.artifactory-home-size}}
+        "size": 512
         }
         },
         {
@@ -94,7 +94,7 @@
         "containerPath": "artifactory-etc",
         "mode": "RW",
         "persistent": {
-        "size": {{pro.local-volumes.artifactory-home-size}}
+        "size": 512
         }
         }
     {{/pro.external-volumes.enabled}}
